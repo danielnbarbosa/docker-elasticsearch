@@ -13,8 +13,8 @@ test:
     - curl --retry 10 --retry-delay 5 -v http://localhost:9200
 
 deployment:
-  hub: 
+  coreos: 
     branch: master
     commands:
       - sed "s/<EMAIL>/$DOCKER_EMAIL/;s/<AUTH>/$DOCKER_AUTH/" < .dockercfg.template > ~/.dockercfg
-      - docker push danielnbarbosa/elasticsearch
+      - bash -x deploy.sh $CIRCLE_SHA1
