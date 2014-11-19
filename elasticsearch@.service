@@ -7,6 +7,7 @@ Requires=docker.service
 TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill elasticsearch-%i
 ExecStartPre=-/usr/bin/docker rm elasticsearch-%i
+ExecStartPre=/usr/bin/docker pull danielnbarbosa/elasticsearch
 ExecStart=/usr/bin/docker run --rm --name elasticsearch-%i -p 9200:9200 danielnbarbosa/elasticsearch
 ExecStop=/usr/bin/docker stop elasticsearch-%i
 
