@@ -8,7 +8,7 @@ FROM dockerfile/java
  
 # Install ElasticSearch.
 # legit versions: 1.2.1, 1.3.0, 1.4.0
-ENV version 1.2.1
+ENV version 1.4.0
 RUN \
   cd /tmp && \
   wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${version}.tar.gz && \
