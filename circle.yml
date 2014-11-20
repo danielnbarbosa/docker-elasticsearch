@@ -5,7 +5,9 @@ machine:
 dependencies:
   override:
     - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
     - docker build -t danielnbarbosa/elasticsearch .
+    - mkdir -p ~/docker; docker save circleci/elasticsearch > ~/docker/image.tar
 
 test:
   override:
