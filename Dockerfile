@@ -8,12 +8,13 @@ FROM dockerfile/java
  
 # Install ElasticSearch.
 # original version: 1.2.1
+ENV version 1.4.0
 RUN \
   cd /tmp && \
-  wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.0.tar.gz && \
-  tar xvzf elasticsearch-1.2.1.tar.gz && \
-  rm -f elasticsearch-1.2.1.tar.gz && \
-  mv /tmp/elasticsearch-1.2.1 /elasticsearch
+  wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${version}.tar.gz && \
+  tar xvzf elasticsearch-${version}.tar.gz && \
+  rm -f elasticsearch-${version}.tar.gz && \
+  mv /tmp/elasticsearch-${version} /elasticsearch
 
 # Define mountable directories.
 VOLUME ["/data"]
